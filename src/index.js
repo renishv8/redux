@@ -4,16 +4,8 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import {applyMiddleware, createStore} from "@reduxjs/toolkit";
-import rootReducer from "./reducers";
-import {getUserLogin} from "./actions/user.action";
-import {composeWithDevTools} from "redux-devtools-extension";
-import thunk from "redux-thunk";
-
-const store = createStore(
-    rootReducer,
-    composeWithDevTools(applyMiddleware(thunk))
-);
+import { getUserLogin } from "./actions/user.action";
+import store from "./store";
 
 store.dispatch(getUserLogin());
 

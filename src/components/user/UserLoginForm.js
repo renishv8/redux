@@ -1,11 +1,11 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
 
-let UserLoginForm = props => {
+const UserLoginForm = props => {
     const { handleSubmit, pristine, submitting } = props;
-    
+
     return (
-        <form onSubmit={handleSubmit} data-testid="login-form">
+        <form onSubmit={handleSubmit}>
             <div>
                 <label>Ton nom</label>
                 <div>
@@ -14,13 +14,19 @@ let UserLoginForm = props => {
                         component="input"
                         type="text"
                         placeholder="Ton nom"
-                        data-testid="login"
+                    />
+                </div>
+                <div>
+                    <Field
+                        name="looooogin"
+                        component="input"
+                        type="text"
+                        placeholder="Ton nooooom"
                     />
                 </div>
             </div>
             <div>
                 <button
-                    data-testid="submitButton"
                     type="submit"
                     disabled={pristine || submitting}
                 >
@@ -31,8 +37,6 @@ let UserLoginForm = props => {
     );
 };
 
-UserLoginForm = reduxForm({
+export default reduxForm({
     form: "login"
 })(UserLoginForm);
-
-export default UserLoginForm
