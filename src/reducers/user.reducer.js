@@ -1,5 +1,4 @@
 import { GET_USER_LOGIN } from "../actions/user.action";
-import { loadState } from "../components/localStorage";
 
 const initialeState = "initialeState";
 
