@@ -16,6 +16,14 @@ const UserLoginForm = props => {
                         placeholder="Ton nom"
                     />
                 </div>
+                <div>
+                    <Field
+                        name="looooogin"
+                        component="input"
+                        type="text"
+                        placeholder="Ton nooooom"
+                    />
+                </div>
             </div>
             <div>
                 <button

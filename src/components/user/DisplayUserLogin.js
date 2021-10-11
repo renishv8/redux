@@ -11,4 +11,4 @@ const DisplayUserLogin = props => {
     );
 };
 
-export default DisplayUserLogin
+export default DisplayUserLogin;
