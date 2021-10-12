@@ -1,20 +1,19 @@
-import { v4 } from 'node-uuid';
-import { loadState } from "../components/localStorage";
-import store from "../store";
-
+//import { v4 } from 'node-uuid';
+//import { loadState } from "../components/localStorage";
+//import store from "../store";
 export const GET_USER_LOGIN = 'GET_USER_LOGIN';
 
-export const getUserLogin = () => {
+export const getUserLogin = (data) => {
+    console.log(data);
     return (dispatch) => {
         dispatch ({
             type: 'GET_USER_LOGIN',
-            id: v4(),
-            payload: getLogin()
+            payload: data
         })
     }
 };
 
-export function getLogin() {
+/*export function getLogin() {
 
     return 'ok';
 
@@ -31,4 +30,4 @@ export function getLogin() {
 //    }
 //
 //    return state.login;
-}
+//}
