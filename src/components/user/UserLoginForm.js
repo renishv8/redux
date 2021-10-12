@@ -1,40 +1,56 @@
-import React from "react";
+import React, {useState} from "react";
 import { Field, reduxForm } from "redux-form";
+import {useDispatch, useSelector} from "react-redux";
+import {getUserLogin} from "../../actions/user.action";
+
 
 const UserLoginForm = props => {
-    const { handleSubmit, pristine, submitting } = props;
+        const [login , setLogin] = useState('');
+        const [password , setPassword] = useState('');
+        const user = useSelector((state) => state.userReducer)
+        const { handleSubmit, pristine, submitting } = props;
+        const dispatch = useDispatch();
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Ton nom</label>
+        const handleForm = (e) => {
+            e.preventDefault();
+            const data = {
+                login,
+                password,
+            }
+
+            dispatch(getUserLogin(data))
+        }
+
+        return (
+            <form onSubmit={(e) => handleForm(e)}>
                 <div>
-                    <Field
-                        name="login"
-                        component="input"
-                        type="text"
-                        placeholder="Ton nom"
-                    />
+                    <label>Ton nom</label>
+                    <div>
+                        <input
+                            name="login"
+                            type="text"
+                            placeholder="Ton login"
+                            onChange={(e) => setLogin(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            name="password"
+                            type="text"
+                            placeholder="Ton password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
                 </div>
                 <div>
-                    <Field
-                        name="looooogin"
-                        component="input"
-                        type="text"
-                        placeholder="Ton nooooom"
-                    />
+                    <button
+                        type="submit"
+                    >
+                        Soumettre
+                    </button>
                 </div>
-            </div>
-            <div>
-                <button
-                    type="submit"
-                    disabled={pristine || submitting}
-                >
-                    Soumettre
-                </button>
-            </div>
-        </form>
-    );
+            </form>
+        );
 };
 
 export default reduxForm({
